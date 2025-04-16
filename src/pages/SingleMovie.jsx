@@ -29,7 +29,7 @@ export default function SingleMovie() {
 
     return (
         <>
-            <div className="p-5 mb-4 bg-secondary">
+            <div className="p-5 mb-4 bg-light text-dark">
                 <div className="container-fluid py-1">
                     <div className=" d-flex justify-content-center justify-content-between">
 
