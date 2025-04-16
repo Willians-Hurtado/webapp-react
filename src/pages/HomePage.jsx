@@ -21,7 +21,7 @@ export default function HomePage() {
                 <section>
                     <div className="container">
 
-                        <div className="row row-cols-sm-2 row-cols-lg-4">
+                        <div className="row row-cols-sm-2 row-cols-lg-4 gap-5 mt-5">
 
                             {
                                 movies.map(movie => (
@@ -32,8 +32,7 @@ export default function HomePage() {
 
                                         <div className="card-body">
                                             <h2>{movie.title}</h2>
-                                            <p>{movie.director}</p>
-                                            <p className="card-text">{movie.abstract}</p>
+                                            <p className='card-text'>{movie.director}</p>
 
                                         </div>
 
