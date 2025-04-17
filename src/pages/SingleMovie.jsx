@@ -1,4 +1,4 @@
-import { useState, useEffect, use } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import MovieReviews from '../components/MovieReviews';
 import ReviewForm from '../components/ReviewForm';
@@ -50,7 +50,8 @@ export default function SingleMovie() {
             <div className="container">
                 <h2 className="text-center">Add a Review</h2>
 
-                <ReviewForm />
+
+                <ReviewForm movieId={movie.id} />
 
 
                 <hr />
