@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function ReviewForm({ movieId }) {
     const api_url = 'http://localhost:3000/api/v1/movies/' + movieId + '/review';
+    const navigate = useNavigate()
 
     const initialFormData = {
         name: 'anonymous',
@@ -60,6 +62,12 @@ export default function ReviewForm({ movieId }) {
         }).then((response) => response.json())
             .then((data) => {
                 console.log('Form submitted succsessfully', data);
+
+                if (data?.message) {
+                    navigate(0)
+                }
+
+
             }).catch((error) => {
                 console.error('Error submitting form', error);
             })
