@@ -21,7 +21,7 @@ export default function HomePage() {
                 <section>
                     <div className="container">
 
-                        <div className="row row-cols-sm-2 row-cols-lg-4 gap-5 mt-5">
+                        <div className="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 gap-5 mt-5">
 
                             {
                                 movies.map(movie => (

@@ -1,6 +1,7 @@
 import { useState, useEffect, use } from 'react'
 import { useParams } from 'react-router-dom';
 import MovieReviews from '../components/MovieReviews';
+import ReviewForm from '../components/ReviewForm';
 
 
 
@@ -45,23 +46,36 @@ export default function SingleMovie() {
                 </div>
             </div>
 
-            {
-                movie.reviews && movie.reviews.length > 0 ? (
 
-                    <div className="container-fluid py-1">
-                        <h2 className="text-center">Reviews</h2>
-                        <div className="d-flex flex-column align-items-center">
-                            {movie.reviews.map((review) => (
-                                <MovieReviews key={review.id} UserReview={review} />
-                            ))}
+            <div className="container">
+                <h2 className="text-center">Add a Review</h2>
+
+                <ReviewForm />
+
+
+                <hr />
+
+                <h2 className="text-center">Reviews</h2>
+                {
+                    movie.reviews && movie.reviews.length > 0 ? (
+
+                        <div className="container-fluid py-3">
+
+                            <div className="d-flex flex-column align-items-center">
+                                {movie.reviews.map((review) => (
+                                    <MovieReviews key={review.id} UserReview={review} />
+                                ))}
+                            </div>
                         </div>
-                    </div>
 
-                ) : (
-                    <p>No reviews available for this movie.</p>
-                )
+                    ) : (
+                        <p>No reviews available for this movie.</p>
+                    )
 
-            }
+                }
+            </div>
+
+
 
         </>
 
