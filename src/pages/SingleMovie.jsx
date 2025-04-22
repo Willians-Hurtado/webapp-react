@@ -16,7 +16,7 @@ export default function SingleMovie() {
         fetch('http://localhost:3000/api/v1/movies/' + id)
             .then(res => res.json())
             .then(data => {
-                setMovie(data)
+                setMovie(data);
             })
             .catch(err => {
                 console.error('Error', err);

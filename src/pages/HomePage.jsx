@@ -1,18 +1,27 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, use } from 'react';
-
+import { useContext } from 'react';
+import GlobalContext from '../context/GlobalContext.jsx';
 
 export default function HomePage() {
 
     const [movies, setMovies] = useState([]);
+    const { isLoading, setIsLoading } = useContext(GlobalContext);
+
+    console.log(isLoading, "from Home page");
+
 
     useEffect(() => {
+
         fetch('http://localhost:3000/api/v1/movies')
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
                 setMovies(data);
-            });
+
+            }).then(() => {
+                setIsLoading(false);
+            })
     }, []);
 
     return (
