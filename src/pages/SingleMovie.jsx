@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import MovieReviews from '../components/MovieReviews';
 import ReviewForm from '../components/ReviewForm';
-
+import { useContext } from 'react';
+import GlobalContext from '../context/GlobalContext.jsx';
 
 
 export default function SingleMovie() {
 
     const { id } = useParams();
+    const { setIsLoading } = useContext(GlobalContext);
 
     const [movie, setMovie] = useState({});
 
@@ -20,6 +22,8 @@ export default function SingleMovie() {
             })
             .catch(err => {
                 console.error('Error', err);
+            }).finally(() => {
+                setIsLoading(false);
             })
 
 
